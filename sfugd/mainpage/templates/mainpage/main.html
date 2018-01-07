@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+   {% load i18n %}
+<html>
+<title>Compact overhead door</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'mainpage/w3.css' %}">
+<link rel="stylesheet" href="{% static 'mainpage/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'mainpage/main.css' %}"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    
+<body class="w3-black">
+    
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w4-decor">
+  <!-- Avatar image in top left corner -->
+  <img src="{% static 'mainpage/patented_logo1.jpg' %}" style="width:100%">
+   
+    {% get_current_language as LANGUAGE_CODE %}
+    {% for menu_one in items %}
+    <a href="#{{menu_one.html_one}}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="{{menu_one.fafa_one}} w3-xxlarge"></i>
+        <p>{% if LANGUAGE_CODE == "ru" %}{{menu_one.item_one}}{% else %}{{menu_one.item_en}}{% endif %}</p>
+    </a>
+    {% endfor %}
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small w4-decor">
+    {% for menu_one in items %}
+      <a href="#{{menu_one.html_one}}" class="w3-bar-item w3-button" style="width:16,67% !important">
+      {% if LANGUAGE_CODE == "ru" %}{{menu_one.item_one}}{% else %}{{menu_one.item_en}}{% endif %}</a>
+    {% endfor %} 
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">   
+    <div class="w3-row w3-content w3-padding-32" id="start">
+    <form class="w3-col w3-right w3-container" style="width:130px" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+  <select class="w3-select w3-border" name="language">
+      {% if LANGUAGE_CODE == "ru" %}
+    <option value="en">ENGLISH</option>
+      {% else %}
+    <option value="ru">РУССКИЙ</option>
+      {% endif %}
+  </select>
+  <p><button class="w3-btn w3-teal" style="width:99px">Submit</button></p>
+</form>
+    <div class="w3-rest w3-container"></div>
+    </div>
+    
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="main">
+    <h1 class="w3-jumbo">{% trans "Патент 8327908" %}</h1>
+    <p class="second-header">{% trans "продажа прав, прототопирование, инвестиции" %}</p>
+    <img src="{% static 'mainpage/Door.jpg' %}" alt="Sectional folding up garage door" class="w3-image" width="992" height="1108">
+  </header>
+
+  <!-- Info Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="info">
+    <h2 style="color:blue !important">{% trans "Введение" %}</h2>
+    <hr style="width:auto; border-top-color:blue!important" class="w3-opacity"><br>
+    <p style="font-size:16px;">
+         {% if LANGUAGE_CODE == "ru" %}{{text.text_2}}{% else %}{{text.text_en}}{% endif %}</p>
+    </div>
+    
+    <div class="w3-content w3-justify w3-text-grey">
+    <h2 style="color:blue !important">{% trans "Преимущества" %}</h2>
+    <hr style="width:auto; border-top-color:blue!important" class="w3-opacity">
+    </div>
+    
+    <div class="w3-content w3-row w3-center w3-section w3-white w3-text-gray" style="font-family:Verdana, sans-serif;!important">
+        {% for info_sec in briefs %}
+      <div class="w3-quarter w3-section">
+        <img src="{% static info_sec.url_part %}" style="class=w3-image;"><br><br>
+        <span class="w3-xlarge">{% if LANGUAGE_CODE == "ru" %}{{info_sec.brief_part}}{% else %}{{info_sec.brief_en}}{% endif %}</span><br><br>
+          <div class="w3-justify" style="padding:0px 16px 0px 16px;!important">{% if LANGUAGE_CODE == "ru" %}{{info_sec.info_part}}{% else %}{{info_sec.info_en}}{% endif %}</div>
+      </div>
+        {% endfor %}
+    </div>
+
+    <!-- Idea section -->
+     <div class="w3-content w3-justify w3-text-grey w3-padding-16" id="idea">
+    <h2 style="color:blue!important">{% trans "Предложения сотрудничества" %}</h2>
+    <hr style="width:auto; border-top-color:blue!important" class="w3-opacity"><br>
+    <div class="w3-row-padding" style="margin:0 -16px">
+        {% for idea_sec in offers %}
+      <div class="w3-third">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.offer_part}}{% else %}{{idea_sec.offer_en}}{% endif %}</li>
+            <li class="w3-justify w3-padding-16" style="line-height:2;">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.text_part}}{% else %}{{idea_sec.text_en}}{% endif %}</li>
+          <li class="w3-light-grey w3-padding-24">
+               <a href="#{{idea_sec.link_part}}" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.linkname_part}}{% else %}{{idea_sec.linkname_en}}{% endif %}</a>
+          </li>
+        </ul>
+      </div>
+          {% endfor %}
+        
+    <!-- End Offer section -->
+    </div>
+    </div>
+  
+  <!-- Data Section -->
+ <div class="w3-content w3-justify w3-text-grey w3-padding-16" id="data">
+      <h2 style="color:blue !important">{% trans "Информация об изобретении" %}</h2>
+      <hr style="width:auto; border-top-color:blue!important" class="w3-opacity"><br>
+     <div class="w3-row-padding" style="margin:0 -16px">
+   <div class="w3-third">
+      <h4>{% trans "Патент США 8327908:" %}</h4>
+      <a href="https://patents.google.com/patent/US8327908B2/en" target="_blank" class="w3-link w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <img src="{% static 'mainpage/Patent_image_1.jpg' %}" alt="Patent 8327908" class="w3-image" width="100%" height="auto">
+      <p>{% trans "Патент US8327908" %}</p>
+      </a>
+         </div>
+     
+      <div class="w3-twothird">
+        <h4>{% trans "Видео:" %}</h4>
+        <div class="videoWrapper">
+         <iframe width="100%" height="auto" src="https://www.youtube.com/embed/sB70pklybHc" frameborder="1" allowfullscreen></iframe>
+        </div>
+      </div>
+   </div>
+    
+     <div class="w3-row-padding" style="margin:0 -16px" id="download">
+         <div class="w3-third">
+     <br><br>
+      <a href="https://patents.google.com/patent/US8327908B2/en" target="_blank">
+      <h4><i class="fa fa-external-link w3-xxlarge"></i>   {% trans "ссылка на GooglePatent" %}</h4></a><br>
+      <a href="http://patft.uspto.gov/netacgi/nph-Parser?Sect2=PTO1&Sect2=HITOFF&p=1&u=/netahtml/PTO/search-bool.html&r=1&f=G&l=50&d=PALL&RefSrch=yes&Query=PN/8327908" target="_blank">
+      <h4><i class="fa fa-external-link w3-xxlarge"></i>   {% trans "ссылка на USPTO" %}</h4></a><br>
+             <a class="reference external" href="{% static 'mainpage/sketch.pdf' %}" target="_blank">
+      <h4><i class="fa fa-download w3-xxlarge"></i>   {% trans "эскиз прототипа" %}</h4></a><br>
+              <a class="reference external" href="{% static 'mainpage/manual_ru.pdf' %}" target="_blank">
+      <h4><i class="fa fa-download w3-xxlarge"></i>   {% trans "описание по сборке (RUS)" %}</h4></a><br>
+             <a class="reference external" href="{% static 'mainpage/manual_en.pdf' %}" target="_blank">
+      <h4><i class="fa fa-download w3-xxlarge"></i>   {% trans "описание по сборке (EN)" %}</h4></a>
+         </div>
+         
+      <div class="w3-twothird">
+          <h4 class="w3-center">{% trans "Комментарий" %}</h4>
+          <p class="w3-decor">{% if LANGUAGE_CODE == "ru" %}{{text.comment_ru|linebreaks}}{% else %}{{text.comment_en|linebreaks}}{% endif %}</p>
+         </div>
+     </div>
+     
+    </div>  
+    <!-- End Data Section -->
+    
+<!-- Contact Section -->
+    <div class="w3-padding-32 w3-content w3-text-grey" id="contact">
+    <h2 style="color:blue !important">{% trans "Контакты" %}</h2>
+    <hr style="width:auto; border-top-color:blue!important" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> {% trans "Москва, Россия" %}</p>
+      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> {% trans "Телефон: +7(985)482-85-88" %}</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> {% trans "Контактное лицо: Владимир Годовалов" %}</p>
+    </div><br>
+    <p>{% trans "Свяжитесь с нами. Напишите нам сообщение:" %}</p>
+
+    <form id="m_form" action="/email" method="post">
+        {% csrf_token %}
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name" id="fname"></p>
+      <p><input class="w3-input w3-padding-16" type="email" placeholder="Email" required name="from_email" id="femail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" oninput="validate_func()"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="subject" id="fsubject"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="message" id="fmessage"></p>
+      <p>
+        <button class="w3-button w3-padding-large" type="submit" id="pop_window">
+          <i class="fa fa-paper-plane"></i> {% trans "ОТПРАВИТЬ СООБЩЕНИЕ" %}
+        </button>
+      </p>
+    </form>
+      
+       <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-center w3-card-4" style="width:50%;">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h4>{% trans "Ваше сообщение отправлено!" %}</h4>
+      </header>
+      <div class="w3-container">
+        <h4>{% trans "Спасибо за обращение к нам," %}</h4>
+        <h4>{% trans "мы свяжемся с вами!" %}</h4>
+      </div>
+      <footer class="w3-container w3-teal">
+        <h4>{% trans "это окно закроется автоматически" %}</h4>
+      </footer>
+    </div>
+  </div>
+</div>
+  <!-- End Contact Section -->
+  
+    <!-- Footer -->
+  <footer class="w3-content w3-center w3-padding-32 w3-text-grey w3-xlarge">
+  
+     <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<!--<a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+<a class="a2a_button_vk"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script><br><br>
+     <!-- AddToAny END -->
+      
+    <p class="w3-medium">{% trans "&#169 2018 Все права защищены" %}</p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+    </div>
+    
+    <script> 
+         function validate_func() {
+    var x = document.getElementById("femail").pattern;}
+        
+        $(document).ready(function(){
+    $("#m_form").submit(function(event){
+    var form=this;
+    event.preventDefault();
+    document.getElementById('id01').style.display='block';
+    setTimeout(function () {
+    form.submit();}, 3000); }); });
+        
+    var isMobile = {
+    Android:        function() {return navigator.userAgent.match(/Android/i) ? true : false;},
+    BlackBerry:     function() {return navigator.userAgent.match(/BlackBerry/i) ? true : false;},
+    iOS:            function() {return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;},
+    Windows:        function() {return navigator.userAgent.match(/IEMobile/i) ? true : false;},
+    any:            function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());} };
+        
+if (!isMobile.any()) {
+$(document).ready(function(){
+    var a=["[href='#start']","[href='#info']","[href='#idea']","[href='#data']","[href='#contact']"];
+    var b="background-color";
+    var c="#222";
+    var d="white";
+    var i
+    $(a[0]).click(function(){
+        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[0]).css(b,d); });
+        $(a[1]).click(function(){
+        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[1]).css(b,d); });
+        $(a[2]).click(function(){
+        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[2]).css(b,d); });
+        $(a[3]).click(function(){
+        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[3]).css(b,d); });
+        $(a[4]).click(function(){
+        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[4]).css(b,d); }); }); }
+    </script>
+    
+</body>
+</html>

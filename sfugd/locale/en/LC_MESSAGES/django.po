@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-07 16:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\mainpage\templates\mainpage\main.html:60
+msgid "Патент 8327908"
+msgstr "Patent 8327908"
+
+#: .\mainpage\templates\mainpage\main.html:61
+msgid "продажа прав, прототопирование, инвестиции"
+msgstr "outright sale, prototyping, investment"
+
+#: .\mainpage\templates\mainpage\main.html:67
+msgid "Введение"
+msgstr "Introduction"
+
+#: .\mainpage\templates\mainpage\main.html:74
+msgid "Преимущества"
+msgstr "Advantages"
+
+#: .\mainpage\templates\mainpage\main.html:90
+msgid "Предложения сотрудничества"
+msgstr "Cooperation offers"
+
+#: .\mainpage\templates\mainpage\main.html:111
+msgid "Информация об изобретении"
+msgstr "Information on invention"
+
+#: .\mainpage\templates\mainpage\main.html:115
+msgid "Патент США 8327908:"
+msgstr "Patent US 8327908:"
+
+#: .\mainpage\templates\mainpage\main.html:118
+msgid "Патент US8327908"
+msgstr "Patent US 8327908"
+
+#: .\mainpage\templates\mainpage\main.html:123
+msgid "Видео:"
+msgstr "Video:"
+
+#: .\mainpage\templates\mainpage\main.html:134
+msgid "ссылка на GooglePatent"
+msgstr "link to GooglePatent"
+
+#: .\mainpage\templates\mainpage\main.html:136
+msgid "ссылка на USPTO"
+msgstr "link to USPTO"
+
+#: .\mainpage\templates\mainpage\main.html:138
+msgid "эскиз прототипа"
+msgstr "Prototype Sketch"
+
+#: .\mainpage\templates\mainpage\main.html:140
+msgid "описание по сборке (RUS)"
+msgstr "Manual (RUS)"
+
+#: .\mainpage\templates\mainpage\main.html:142
+msgid "описание по сборке (EN)"
+msgstr "Manual (EN)"
+
+#: .\mainpage\templates\mainpage\main.html:146
+msgid "Комментарий"
+msgstr "Comment"
+
+#: .\mainpage\templates\mainpage\main.html:156
+msgid "Контакты"
+msgstr "Contact Us"
+
+#: .\mainpage\templates\mainpage\main.html:160
+msgid "Москва, Россия"
+msgstr "Austin, USA"
+
+#: .\mainpage\templates\mainpage\main.html:161
+msgid "Телефон: +7(985)482-85-88"
+msgstr "Phone:+1 956 620-63-03"
+
+#: .\mainpage\templates\mainpage\main.html:162
+msgid "Контактное лицо: Владимир Годовалов"
+msgstr "Contact person: Kseniia Hernandez"
+
+#: .\mainpage\templates\mainpage\main.html:164
+msgid "Свяжитесь с нами. Напишите нам сообщение:"
+msgstr "Lets get in touch. Send us a message"
+
+#: .\mainpage\templates\mainpage\main.html:174
+msgid "ОТПРАВИТЬ СООБЩЕНИЕ"
+msgstr "SEND MESSAGE"
+
+#: .\mainpage\templates\mainpage\main.html:184
+msgid "Ваше сообщение отправлено!"
+msgstr "Your message has been sent"
+
+#: .\mainpage\templates\mainpage\main.html:187
+msgid "Спасибо за обращение к нам,"
+msgstr "Thanks for contacting us"
+
+#: .\mainpage\templates\mainpage\main.html:188
+msgid "мы свяжемся с вами!"
+msgstr "we contact you back!"
+
+#: .\mainpage\templates\mainpage\main.html:191
+msgid "это окно закроется автоматически"
+msgstr "the window closes automatically"
+
+#: .\mainpage\templates\mainpage\main.html:212
+msgid "&#169 2018 Все права защищены"
+msgstr "&#169 2018 All Right Reserved"
+
+#~ msgid "Загрузить материалы в PDF-формате"
+#~ msgstr "Download PDF"
+
+#~ msgid "Current language :"
+#~ msgstr "Текущий язык"

@@ -1,0 +1,50 @@
+    .w3-black {
+        background-color: white!important;
+        color: blue!important;
+    }
+    .w3-jumbo {
+        font-size: 58px!important;
+    }
+    .second-header {
+        font-size: 24px!important;
+    }
+    hr {
+    border-top-color:blue!important;
+    }
+    .w3-text-light-grey {
+        color: #757575!important;
+    }
+    .w3-link {
+        background-color: darkgray!important;
+    }
+    .w3-hover-black:hover {
+        background-color:dimgray!important;
+    }
+    .videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+    }
+    .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    }
+    .w3-decor {
+        font-family: "Lusida Sans", sans-serif;
+        line-height:3;
+    }
+    .w4-decor {
+        font-family: "Verdana", sans-serif;}
+    
+body,h1,h2,h3,h4,h5,h6 {font-family: "Verdana", sans-serif;!important}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
