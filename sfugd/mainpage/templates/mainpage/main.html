@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-   {% load i18n %}
+{% load i18n %}
 <html>
 <title>Compact overhead door</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:locale:alternate"/>
 <link rel="stylesheet" href="{% static 'mainpage/w3.css' %}">
 <link rel="stylesheet" href="{% static 'mainpage/bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'mainpage/main.css' %}"> 
@@ -21,7 +22,7 @@
    
     {% get_current_language as LANGUAGE_CODE %}
     {% for menu_one in items %}
-    <a href="#{{menu_one.html_one}}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="{{menu_one.html_one}}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="{{menu_one.fafa_one}} w3-xxlarge"></i>
         <p>{% if LANGUAGE_CODE == "ru" %}{{menu_one.item_one}}{% else %}{{menu_one.item_en}}{% endif %}</p>
     </a>
@@ -32,7 +33,7 @@
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small w4-decor">
     {% for menu_one in items %}
-      <a href="#{{menu_one.html_one}}" class="w3-bar-item w3-button" style="width:16,67% !important">
+      <a href="{{menu_one.html_one}}" class="w3-bar-item w3-button" style="width:16,67% !important">
       {% if LANGUAGE_CODE == "ru" %}{{menu_one.item_one}}{% else %}{{menu_one.item_en}}{% endif %}</a>
     {% endfor %} 
   </div>
@@ -96,7 +97,7 @@
           <li class="w3-dark-grey w3-xlarge w3-padding-32">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.offer_part}}{% else %}{{idea_sec.offer_en}}{% endif %}</li>
             <li class="w3-justify w3-padding-16" style="line-height:2;">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.text_part}}{% else %}{{idea_sec.text_en}}{% endif %}</li>
           <li class="w3-light-grey w3-padding-24">
-               <a href="#{{idea_sec.link_part}}" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.linkname_part}}{% else %}{{idea_sec.linkname_en}}{% endif %}</a>
+               <a href="{{idea_sec.link_part}}" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black">{% if LANGUAGE_CODE == "ru" %}{{idea_sec.linkname_part}}{% else %}{{idea_sec.linkname_en}}{% endif %}</a>
           </li>
         </ul>
       </div>
@@ -136,7 +137,7 @@
       <h4><i class="fa fa-external-link w3-xxlarge"></i>   {% trans "ссылка на USPTO" %}</h4></a><br>
              <a class="reference external" href="{% static 'mainpage/sketch.pdf' %}" target="_blank">
       <h4><i class="fa fa-download w3-xxlarge"></i>   {% trans "эскиз прототипа" %}</h4></a><br>
-              <a class="reference external" href="{% static 'mainpage/manual_ru.pdf' %}" target="_blank">
+             <a class="reference external" href="{% static 'mainpage/manual_ru.pdf' %}" target="_blank">
       <h4><i class="fa fa-download w3-xxlarge"></i>   {% trans "описание по сборке (RUS)" %}</h4></a><br>
              <a class="reference external" href="{% static 'mainpage/manual_en.pdf' %}" target="_blank">
       <h4><i class="fa fa-download w3-xxlarge"></i>   {% trans "описание по сборке (EN)" %}</h4></a>
@@ -212,52 +213,47 @@
     <p class="w3-medium">{% trans "&#169 2018 Все права защищены" %}</p>
   <!-- End footer -->
   </footer>
-
+    
 <!-- END PAGE CONTENT -->
     </div>
     
-    <script> 
-         function validate_func() {
+<script> 
+    function validate_func() {
     var x = document.getElementById("femail").pattern;}
         
-        $(document).ready(function(){
+    $(document).ready(function(){
     $("#m_form").submit(function(event){
     var form=this;
     event.preventDefault();
     document.getElementById('id01').style.display='block';
     setTimeout(function () {
-    form.submit();}, 3000); }); });
+    form.submit();}, 4000); }); });
         
     var isMobile = {
     Android:        function() {return navigator.userAgent.match(/Android/i) ? true : false;},
     BlackBerry:     function() {return navigator.userAgent.match(/BlackBerry/i) ? true : false;},
     iOS:            function() {return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;},
     Windows:        function() {return navigator.userAgent.match(/IEMobile/i) ? true : false;},
-    any:            function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());} };
-        
+    any:            function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());} };   
+    
 if (!isMobile.any()) {
 $(document).ready(function(){
     var a=["[href='#start']","[href='#info']","[href='#idea']","[href='#data']","[href='#contact']"];
     var b="background-color";
     var c="#222";
     var d="white";
-    var i
-    $(a[0]).click(function(){
-        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+    var i;
+    $(a[0]).click(function(){for (i=0;i<5;i++){$(a[i]).css(b,c);}
         $(a[0]).css(b,d); });
-        $(a[1]).click(function(){
-        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[1]).click(function(){for (i=0;i<5;i++){$(a[i]).css(b,c);}
         $(a[1]).css(b,d); });
-        $(a[2]).click(function(){
-        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[2]).click(function(){for (i=0;i<5;i++){$(a[i]).css(b,c);}
         $(a[2]).css(b,d); });
-        $(a[3]).click(function(){
-        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[3]).click(function(){for (i=0;i<5;i++){$(a[i]).css(b,c);}
         $(a[3]).css(b,d); });
-        $(a[4]).click(function(){
-        for (i=0;i<5;i++){$(a[i]).css(b,c);}
+        $(a[4]).click(function(){for (i=0;i<5;i++){$(a[i]).css(b,c);}
         $(a[4]).css(b,d); }); }); }
-    </script>
+</script>
     
 </body>
 </html>

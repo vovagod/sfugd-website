@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ow=&!q&_^$cx)n05f^65zq+fiomm3bc25@onsk0^i$p%j4ve3@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sfugd.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'fold-up-door.com']
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'mainpage',
 ]
 
@@ -52,6 +54,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sfugd.urls'
+
+#TEMPLATE_LOADERS = (
+    #'django.template.loaders.app_directories.load_template_source',
+#)
 
 TEMPLATES = [
     {
@@ -71,7 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sfugd.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -81,7 +86,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -102,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Sending emails
-
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -133,7 +136,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

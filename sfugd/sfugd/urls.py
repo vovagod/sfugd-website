@@ -17,15 +17,26 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.sitemaps.views import sitemap
 from mainpage import views
+from mainpage.sitemaps import StaticViewSitemap
+from django.views.generic import TemplateView
+
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^email', views.send_email),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt.html'), name="robots"),
 ]
 
 urlpatterns += i18n_patterns(
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
     url(r'\S+', views.main_check),
     url(r'', views.main, name='right_entrance'),
 )
